@@ -23,7 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "object.assign": "^3.0.0",
-    "warning": "^1.0.1"
+    "warning": "^1.0.2"
   },
   "devDependencies": {
     "babel": "^5.4.5",

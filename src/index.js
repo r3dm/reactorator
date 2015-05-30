@@ -1,5 +1,5 @@
 import assign from 'object.assign';
-import invariant from 'invariant';
+import warning from 'warning';
 
 const slice = Array.prototype.slice;
 const __DEV__ = process.env.NODE_ENV !== 'production';
@@ -28,8 +28,7 @@ export default function reactorator(mixins) {
   mixins.forEach(mixin => {
     Object.keys(mixin).forEach(prop => {
       if (__DEV__) {
-        console.log(prop, REACT_PROTECTED.indexOf(prop));
-        invariant(
+        warning(
           REACT_PROTECTED.indexOf(prop) === -1,
           'reactorator should get mixins that do not feature react ' +
           'lifecycle hooks but found %s',

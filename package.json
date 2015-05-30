@@ -22,13 +22,14 @@
   "author": "Berkeley Martinez <Berkeley@RoboTie.com> (http://RoboTie.com)",
   "license": "MIT",
   "dependencies": {
-    "invariant": "^2.0.0",
-    "object.assign": "^3.0.0"
+    "object.assign": "^3.0.0",
+    "warning": "^1.0.1"
   },
   "devDependencies": {
     "babel": "^5.4.5",
     "chai": "^2.3.0",
     "istanbul": "^0.3.14",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "sinon": "^1.14.1"
   }
 }

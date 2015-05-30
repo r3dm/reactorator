@@ -1,4 +1,5 @@
 import chai, { expect } from 'chai';
+import sinon from 'sinon';
 import reactorator from '../src';
 
 chai.should();
@@ -10,10 +11,11 @@ describe('reactorator', function() {
     reactorate.should.be.a('function');
   });
 
-  it('should throw if mixin contains react lifecycle', () => {
-    expect(function () {
-      reactorator({ childContextTypes: null });
-    }).to.throw(/do not feature react lifecycle/);
+  it('should warn if mixin contains react lifecycle', () => {
+    let spy = sinon.spy(console, 'error');
+    reactorator({ childContextTypes: null });
+    spy.restore();
+    sinon.assert.calledWithMatch(spy, /do not feature react lifecycle/);
   });
 
   describe('reactorate', () => {

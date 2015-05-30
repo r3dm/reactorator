@@ -7,27 +7,23 @@ Mixin your mixins and decorate!
 import reactorator from 'reactorator';
 
 import { Component } from 'react';
-import { state } from 'react-router';
+import { state, navigation } from 'react-router';
 
-@reactorator(state)
+@reactorator(state, navigation)
 class Nav extends Component {
   constructor() {
     super();
   }
   
-  getInitialState() {
-    return {
-      currentPath: this.getPath()
-    };
-  }
   render() {
-    return <h1>Hello { this.state.currentPath }</h1>;
+    const path = this.getPath();
+    return <h1>Hello { path }</h1>;
   }
 }
 ```
-Takes in mixins that add functionality but do not depend on react lifecycle hooks. So things like react-routers state and navigation mixins work great. But if you try to add a mixin that do have a React lifecycle prop reactorator will throw.
+Takes in mixins that add functionality. But if you try to add mixins that do have a React lifecycle prop reactorator will warn you and let you decide how to continue.
 
-It takes these mixins and adds them to the prototype of the Component using Object.assign.
+It takes mixins and adds them to the prototype of the Component using Object.assign.
 
 There are other decorators out there that will work with React lifecycle mixins by creating a Higher Order Component but when you are using lots of mixins you end up wrapping your component several layers deep. This is meant to alliviate that pain.
 

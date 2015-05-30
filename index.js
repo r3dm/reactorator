@@ -9,9 +9,9 @@ var _objectAssign = require('object.assign');
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
-var _invariant = require('invariant');
+var _warning = require('warning');
 
-var _invariant2 = _interopRequireDefault(_invariant);
+var _warning2 = _interopRequireDefault(_warning);
 
 var slice = Array.prototype.slice;
 var __DEV__ = process.env.NODE_ENV !== 'production';
@@ -22,8 +22,7 @@ function reactorator(mixins) {
   mixins.forEach(function (mixin) {
     Object.keys(mixin).forEach(function (prop) {
       if (__DEV__) {
-        console.log(prop, REACT_PROTECTED.indexOf(prop));
-        (0, _invariant2['default'])(REACT_PROTECTED.indexOf(prop) === -1, 'reactorator should get mixins that do not feature react ' + 'lifecycle hooks but found %s', prop);
+        (0, _warning2['default'])(REACT_PROTECTED.indexOf(prop) === -1, 'reactorator should get mixins that do not feature react ' + 'lifecycle hooks but found %s', prop);
       }
     });
   });

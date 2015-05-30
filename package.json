@@ -1,6 +1,6 @@
 {
   "name": "reactorator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "decorate your components with mixins",
   "main": "index.js",
   "scripts": {
